@@ -1,0 +1,474 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("http://smallbiztrends.com/wp-content/uploads/2015/12/todo-list.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+}
+
+/* Main App Layout */
+.app-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  gap: 30px;
+}
+
+/* Image Section */
+.image-container {
+  flex: 1;
+  max-width: 40%;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Authentication & Form Container */
+.auth-container {
+  width: 480px;
+  padding: 35px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.auth-container:hover {
+  transform: translateY(-3px);
+}
+
+.auth-container h2 {
+  color: #1a2a6c;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Input Fields */
+.auth-container input,
+.auth-container select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.auth-container input:focus,
+.auth-container select:focus {
+  border-color: #1a2a6c;
+  outline: none;
+}
+
+/* Buttons */
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #d13838, #fbb034);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.auth-container button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(45deg, #b32b2b, #e09b2d);
+}
+
+/* Link Text */
+.auth-container p {
+  color: #666;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.auth-container p:hover {
+  color: #1a2a6c;
+  text-decoration: underline;
+}
+
+/* Profile Header */
+.profile-header {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+  padding: 15px 25px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header p {
+  color: #1a2a6c;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Todo List Container */
+.todo-container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.todo-container h2 {
+  color: #1a2a6c;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Task List */
+.todo-container ul {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.todo-container li {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin: 8px 0;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.todo-container li:hover {
+  transform: translateX(5px);
+}
+
+.todo-container li.completed {
+  background: linear-gradient(to right, #e8f5e9, #c8e6c9);
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.todo-container li span {
+  flex: 1;
+  margin-right: 15px;
+  color: #333;
+}
+
+/* Task Actions */
+.todo-container li button {
+  background: none;
+  border: none;
+  margin-left: 8px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.todo-container li button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Create/Edit Task */
+.create-task, .edit-task {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.create-task input, .edit-task input {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.create-task input:focus, .edit-task input:focus {
+  border-color: #1a2a6c;
+  outline: none;
+}
+
+.create-task button, .edit-task button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: transform 0.2s ease;
+}
+
+.create-task button:hover, .edit-task button:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .app-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-container {
+    max-width: 100%;
+    order: -1;
+  }
+
+  .auth-container {
+    width: 100%;
+    padding: 25px;
+  }
+}
+
+/* Small Screen Adjustments */
+@media (max-width: 600px) {
+  .create-task, .edit-task {
+    flex-direction: column;
+  }
+  
+  .create-task input, .edit-task input {
+    width: 100%;
+  }
+  
+  .todo-container li {
+    flex-wrap: wrap;
+  }
+  
+  .todo-container li span {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.forgot-password {
+  color: #4A90E2;
+  cursor: pointer;
+  text-align: right;
+  margin: 8px 0;
+  font-size: 0.9em;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.back-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.success-message {
+  color: #28a745;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #d4edda;
+  border-radius: 4px;
+}
+
+.error-message {
+  color: #dc3545;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f8d7da;
+  border-radius: 4px;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon svg {
+  position: absolute;
+  left: 10px;
+  color: #666;
+}
+
+.input-with-icon input {
+  padding-left: 35px;
+}
+
+.overdue {
+  background-color: rgba(255, 0, 0, 0.1);
+  border-left: 3px solid #ff0000;
+}
+
+.overdue-badge {
+  background-color: #ff0000;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  margin-left: 8px;
+}
+
+.notification-banner {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-banner button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.notification-banner button:hover {
+  background-color: #c82333;
+}
+
+/* ... existing styles ... */
+
+.search-bar {
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px 40px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.search-bar svg {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 20px;
+}
+
+/* Add styles for toast notifications */
+.Toastify__toast {
+  border-radius: 8px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.Toastify__toast--error {
+  background: #ff6b6b;
+  color: white;
+}
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
