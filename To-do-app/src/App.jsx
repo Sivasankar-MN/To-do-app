@@ -585,7 +585,7 @@ const TodoApp = ({ user, onLogout }) => {
         </button>
       </div>
       <div className="todo-container">
-        <h2>Weekly Tasks</h2>
+        <h2>Monthly Tasks</h2>
         {editingTask ? (
           <TaskForm task={editingTask} onSubmit={saveTask} onCancel={() => setEditingTask(null)} />
         ) : (
